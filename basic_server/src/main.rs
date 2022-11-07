@@ -26,6 +26,12 @@ fn rocket() -> _ {
 
 #[get("/ping")]
 fn ping(headers: RequestHeaders) -> serde_json::Value {
+    let hostname = match std::env::var("HOSTNAME") {
+        Ok(val) => val,
+        Err(_e) => "error".to_string(),
+    };
+    println!("Hostname: {}", hostname);
+
     let mut res: serde_json::Value = json!({});
     for header in headers.0.iter() {
         let k = header.name().as_str().to_owned();

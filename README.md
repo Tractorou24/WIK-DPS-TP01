@@ -20,7 +20,7 @@ Else, it will be set to <span style="color:orange">8080</span> by default.
 <br><br>
 
 # **WIK-DPS-TP02**
-WIK-DPS-TP02 is the TP for the doker image used to build and run the WIK-DPS-TP01 server.
+WIK-DPS-TP02 is the TP for the docker image used to build and run the WIK-DPS-TP01 server.
 
 <ins>Build and run the server :</ins>
 - Open a terminal in the <span style="color:orange">basic_server</span> folder
@@ -45,3 +45,11 @@ The current image is only 138 bytes.
 - Open a terminal in the <span style="color:orange">count_asm</span> folder
 - Run the <span style="color:orange">docker build -t count_asm .</span> command to build the image
 - Run the <span style="color:orange">docker run count_asm</span> command to run the image
+
+# **WIK-DPS-TP03**
+WIK-DPS-TP03 is the TP for the docker image used to build and run multiple instances of the WIK-DPS-TP01 server with loadbalancing.
+
+*Run the docker compose:*
+- Open a terminal in the main folder
+- Run the <span style="color:orange">docker-compose up</span> command to run the docker compose
+- Open a browser and go to <span style="color:orange">localhost:8080/ping</span> to see the loadbalancing in action

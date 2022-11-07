@@ -6,6 +6,7 @@ WORKDIR /basic_server
 
 COPY ./Cargo.lock ./Cargo.lock
 COPY ./Cargo.toml ./Cargo.toml
+COPY ./Rocket.toml ./Rocket.toml
 
 RUN cargo build --release
 RUN rm src/*.rs
@@ -17,4 +18,5 @@ RUN cargo build --release
 # Final Image
 FROM rust:1.64.0
 COPY --from=build /basic_server/target/release/basic_server .
+COPY --from=build /basic_server/Rocket.toml .
 CMD ["./basic_server"]
